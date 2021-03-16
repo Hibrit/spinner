@@ -1,0 +1,35 @@
+ 8982 INFO: Looking for ctypes DLLs
+Traceback (most recent call last):
+  File "/mnt/vault/codes/spinner/venv/bin/pyinstaller", line 8, in <module>
+    sys.exit(run())
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/__main__.py", line 114, in run
+    run_build(pyi_config, spec_file, **vars(args))
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/__main__.py", line 65, in run_build
+    PyInstaller.building.build_main.main(pyi_config, spec_file, **kwargs)
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/building/build_main.py", line 725, in main
+    build(specfile, kw.get('distpath'), kw.get('workpath'), kw.get('clean_build'))
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/building/build_main.py", line 672, in build
+    exec(code, spec_namespace)
+  File "/mnt/vault/codes/spinner/spinner.spec", line 6, in <module>
+    a = Analysis(['spinner.py'],
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/building/build_main.py", line 242, in __init__
+    self.__postinit__()
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/building/datastruct.py", line 160, in __postinit__
+    self.assemble()
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/building/build_main.py", line 438, in assemble
+    ctypes_binaries = scan_code_for_ctypes(co)
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/depend/utils.py", line 145, in scan_code_for_ctypes
+    binaries = _resolveCtypesImports(binaries)
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/depend/utils.py", line 319, in _resolveCtypesImports
+    load_ldconfig_cache()
+  File "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/depend/utils.py", line 402, in load_ldconfig_cache
+    path = m.groups()[-1]
+AttributeError: 'NoneType' object has no attribute 'groups'
+
+
+if you get an error like this one just put
+
+if not m:
+    continue
+
+to "/mnt/vault/codes/spinner/venv/lib/python3.9/site-packages/PyInstaller/depend/utils.py", line 402 here
